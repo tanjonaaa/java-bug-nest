@@ -11,18 +11,22 @@ public class TestCases {
 
     public static void main(String[] args) {
         FullTimeEmployee koto = TestCases.fullTimeEmployeeKoto();
+        FullTimeEmployee koto2 = TestCases.fullTimeEmployeeKoto();
+        FullTimeEmployee fullTimeLita2 = new FullTimeEmployee(3, "Lita", 3_000_000);
+
+        PartTimeEmployee partTimeKoto = new PartTimeEmployee(1, "Koto", 22, 11_750);
+
         PartTimeEmployee lita = TestCases.partTimeEmployeeLita();
+        PartTimeEmployee lita2 = TestCases.partTimeEmployeeLita();
+        FullTimeEmployee fullTimeLita = new FullTimeEmployee(2, "Lita", 3_000_000);
 
-        // TODO : prevent the direct access here
-        koto.monthlySalary = 6_000_000;
-        lita.hoursWorked = 1_000;
-
-        // TODO : do not allow incoherent changes on salaries (applies to full time employees too)
-        lita.hourlyRate = -10_000_000;
-
-        // TODO : fix the string format of both full time and part time employees
-        // NOTE : do not show sensitive data such as hourlyRate or monthlySalary here !
         System.out.println("Details about Koto " + koto);
         System.out.println("Details about Lita " + lita);
+
+        System.out.println(koto2.equals(koto));
+        System.out.println(lita2.equals(lita));
+        System.out.println(koto.equals(partTimeKoto));
+        System.out.println(lita.equals(fullTimeLita));
+        System.out.println(FullTimeEmployee.getLastId());
     }
 }
